@@ -1,0 +1,107 @@
+Guía Paso a Paso: Escaneo de Vulnerabilidades con Nmap
+
+---
+
+**Objetivo**: Aprender a realizar escaneos básicos y avanzados sobre una IP o red usando Nmap, identificando puertos abiertos, servicios y sistema operativo.
+
+---
+
+### Paso 1: Abrir la Terminal en Kali Linux
+
+* Usa `Ctrl + Alt + T` o búscala en el menú de aplicaciones.
+
+---
+
+### Paso 2: Identificar tu red local
+
+Ejecuta:
+
+```bash
+ip a
+```
+
+Busca tu dirección IP, por ejemplo: `192.168.1.100/24`. Tu red va de `192.168.1.1` a `192.168.1.254`.
+
+---
+
+### Paso 3: Escaneo de hosts activos (Ping Scan)
+
+```bash
+nmap -sn 192.168.1.0/24
+```
+
+* Identifica qué dispositivos están activos en tu red.
+
+---
+
+### Paso 4: Escaneo rápido de puertos
+
+```bash
+nmap 192.168.1.1
+```
+
+* Escanea los 1000 puertos más comunes.
+
+---
+
+### Paso 5: Escaneo de versiones y servicios
+
+```bash
+nmap -sV 192.168.1.1
+```
+
+* Detecta qué servicios y versiones se ejecutan en los puertos abiertos.
+
+---
+
+### Paso 6: Escaneo más completo con scripts
+
+```bash
+nmap -sC -sV 192.168.1.1
+```
+
+* Usa scripts predeterminados para obtener información adicional.
+
+---
+
+### Paso 7: Detección del sistema operativo
+
+```bash
+nmap -O 192.168.1.1
+```
+
+* Intenta identificar el sistema operativo del objetivo.
+
+---
+
+### Paso 8: Guardar resultados en archivo
+
+```bash
+nmap -sC -sV -O -oN reporte_nmap.txt 192.168.1.1
+```
+
+* Guarda el resultado en un archivo de texto legible.
+
+---
+
+### Paso 9: Interpretar los resultados
+
+* Puertos abiertos
+* Servicios identificados
+* Sistema operativo estimado
+* Riesgos o servicios obsoletos
+
+---
+
+### Paso 10 (Opcional): Escaneo sigiloso (SYN Scan)
+
+```bash
+nmap -sS 192.168.1.1
+```
+
+* Más discreto ante firewalls y sistemas de detección.
+
+---
+
+**Recomendación**: Practica con tu propio router, una máquina virtual o una imagen como Metasploitable. Nunca escanees redes sin autorización.
+A claro es fines educativos cualquier mal uso no me hago responsable. xdxdxd
